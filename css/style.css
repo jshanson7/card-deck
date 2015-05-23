@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(50, 109, 50);
+  height: 100%;
+  width: 100%;
+}
+
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+  flex-direction: column;
+}
+
+.deck-view {
+  position: relative;
+}
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.card-row .card {
+  display: inline-flex;
+  margin: 6px;
+}
+
+.card {
+  background: -webkit-linear-gradient(top, rgb(245, 245, 245), rgb(218, 218, 218));
+  width: 75px;
+  min-width: 75px;
+  height: 120px;
+  border: 1px solid rgb(86, 86, 86);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  transition:
+    box-shadow .1s,
+    text-shadow .1s,
+    background .1s;
+}
+
+.card.suit-♥, .card.suit-♦ {
+  color: red;
+}
+
+.card.suit-♣, .card.suit-♠ {
+  color: rgb(53, 53, 53);
+}
+
+.card.selected {
+  background: -webkit-linear-gradient(top, rgb(250, 248, 156), rgb(219, 216, 75));
+}
+
+.card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.75);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .25);
+  cursor: pointer;
+}
+
+.card:not(.selected):hover {
+  background: -webkit-linear-gradient(top, rgb(255, 255, 255), rgb(245, 245, 245));
+}
+
+.card.selected:hover {
+  background: -webkit-linear-gradient(top, rgb(251, 250, 193), rgb(238, 236, 113));
+}
+
+.card-value {
+  position: absolute;
+  margin: 4px;
+}
+
+.card-value-top {
+  top: 0;
+  left: 0;
+}
+
+.card-value-bottom {
+  bottom: 0;
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.card-icons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: calc(100% - 30px);
+  max-height: calc(100% - 40px);
+  align-self: center;
+}
+
+.card-icon {
+  margin: 1px;
+  align-self: center;
+}
+
+.big-icon {
+  align-self: center;
+  font-size: 2.5em;
+}
+
+.selection-count {
+  position: absolute;
+  top: -26px;
+  left: -26px;
+  font-size: 1.2em;
+  color: rgb(218, 218, 218);
+  font-family: helveticaNeue, helvetica, arial;
+}
