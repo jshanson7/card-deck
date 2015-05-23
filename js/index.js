@@ -16,9 +16,9 @@ _.extend(Card.prototype, {
     'suit': null,
     'selected': false
   },
-	getStrength: function () {
-  	return VALUES.indexOf(this.value);
-	},
+  getStrength: function () {
+    return VALUES.indexOf(this.value);
+  },
   setSelected: function (value) {
     this.selected = value;
   },
@@ -90,7 +90,7 @@ _.extend(CardView.prototype, {
     
     this.$el = $('<div/>', {
       class: 'card suit-' + this.card.suit + ' value-' + this.card.value +
-      	(this.card.selected ? ' selected' : ''),
+        (this.card.selected ? ' selected' : ''),
       html: [
         this.renderValue('top'),
         this.renderIcons(),
@@ -120,7 +120,7 @@ _.extend(DeckView.prototype, {
     this.$selectionCount = $('<div/>', {
       class: 'selection-count',
       html: 'Selected: ' +
-      	_.where( this.deck.cards, {'selected': true}).length
+        _.where( this.deck.cards, {'selected': true}).length
     });
     
     if ($old) {
@@ -132,7 +132,7 @@ _.extend(DeckView.prototype, {
   renderCard: function (card) {
     return new CardView({'card': card}).render();
   },
-	renderCardRow: function (cards) {
+  renderCardRow: function (cards) {
     return $('<div/>', {
       class: 'card-row',
       html: _.map(cards, this.renderCard)
@@ -148,11 +148,11 @@ _.extend(DeckView.prototype, {
   render: function () {
     var $old = this.$el;
     
-		this.$el = $('<div/>', {
+    this.$el = $('<div/>', {
       class: 'deck-view',
       html: [].concat(
         this.renderDeckBySuits(),
-      	this.renderSelectionCount()
+        this.renderSelectionCount()
       ),
       on: _.result(this, 'events')
     });
